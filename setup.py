@@ -1,22 +1,24 @@
 #!/usr/bin/python3
-"""Setup
+"""
+Setup
 """
 from setuptools import find_packages
 from distutils.core import setup
 
-version = "0.0.1"
+version = "1.0.0"
 
-with open("README.rst") as f:
+with open("README.md") as f:
     long_description = f.read()
 
 setup(
-    name="ofxstatement-sample",
+    name="ofxstatement-equabankcz",
     version=version,
-    author="Andrey Lebedev",
-    author_email="andrey@lebedev.lt",
-    url="https://github.com/kedder/ofxstatement",
-    description=("Sample plugin for ofxstatement"),
+    author="Jan Koscielniak",
+    author_email="jkosci@gmail.com",
+    url="https://github.com/kosciCZ/ofxstatement-equabankcz",
+    description=("ofxstatement plugin for Equa Bank (CZ)"),
     long_description=long_description,
+    long_description_content_type="text/markdown",
     license="GPLv3",
     keywords=["ofx", "banking", "statement"],
     classifiers=[
@@ -33,7 +35,9 @@ setup(
     package_dir={"": "src"},
     namespace_packages=["ofxstatement", "ofxstatement.plugins"],
     entry_points={
-        "ofxstatement": ["sample = ofxstatement.plugins.sample:SamplePlugin"]
+        "ofxstatement": [
+            "equabankcz = ofxstatement.plugins.equabankcz:EquaBankCZPlugin"
+        ]
     },
     install_requires=["ofxstatement"],
     include_package_data=True,
